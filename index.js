@@ -319,6 +319,21 @@ var util = {
         ----------------------------------------*/
 
 
+    },
+    
+    //合并对象函数，可以用于基本的对象之间的合并，产生新对象。
+    //可一次传入多个对象
+    mergeObjs:function (objs) {
+      if(objs===undefined||arguments.length===0){return {}}
+      var newObj = {}
+      // for (var attrname in obj1) { newObj[attrname] = obj1[attrname]; }
+      // for (var attrname in obj2) { newObj[attrname] = obj2[attrname]; }
+      for(var i=0;i<arguments.length;i++){
+        for(var attrname in arguments[i]){
+          newObj[attrname]=arguments[i][attrname]
+        }
+      }
+      return newObj;
     }
 }
 // export {util};
